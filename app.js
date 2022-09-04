@@ -50,12 +50,13 @@ app.use(function(err, req, res, next) {
 });
 
 
-mongoose.connect('mongodb://localhost:27017/nft_rps')
+// mongoose.connect('mongodb://localhost:27017/nft_rps')
+mongoose.connect('mongodb://doadmin:17XJK48i96z50DSg@rpsgame-34e6245c.mongo.ondigitalocean.com:27017/admin')
   .then(function (result, second) {
     console.log("mongodb connect success");
   })
   .catch(function (err) {
-    console.log("Error");
+    console.log("Error", err);
   });
 
 module.exports = app;
