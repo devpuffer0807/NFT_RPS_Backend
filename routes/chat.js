@@ -4,6 +4,8 @@ var { Joi, validate } = require("express-validation");
 var User = require("../models/user");
 var Chat = require("../models/chat");
 
+const perPage = 10000;
+
 /**
  * @route /chat
  * @method POST
@@ -46,7 +48,7 @@ router.post("/", validate({
  **/
 router.get("/", async function(req, res, next) {
     try{
-        const chats = await Chat.find({}, null, { skip: 0, limit: 30 }).exec();
+        const chats = await Chat.find({}, null, { skip: 0, limit: perPage }).exec();
         return res.json(chats);
     }catch(e){
         next()
@@ -64,7 +66,7 @@ router.get("/:pageIndex", async function(req, res, next) {
         var pageIndex = req.query.pageIndex;
         pageIndex = isNaN(parseInt(pageIndex)) ? 0 : parseInt(pageIndex);
         console.log(pageIndex)
-        const chats = await Chat.find({}, null, { skip: pageIndex * 30, limit: 30 }).populate('owner').exec();
+        const chats = await Chat.find({}, null, { skip: pageIndex * perPage, limit: perPage }).populate('owner').exec();
         return res.json(chats);
     }catch(e){
         next()
