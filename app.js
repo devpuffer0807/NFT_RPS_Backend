@@ -51,7 +51,7 @@ app.use(function(err, req, res, next) {
 
 
 // mongoose.connect('mongodb://localhost:27017/nft_rps')
-mongoose.connect('mongodb://doadmin:76U12GRb0HCg4W85@rpsgame-34e6245c.mongo.ondigitalocean.com:27017/admin?authSource=admin', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://doadmin:751J4Sd802Zve6nw@rps-feac81a2.mongo.ondigitalocean.com/admin?tls=true&authSource=admin', {useNewUrlParser: true})
   .then(function (result, second) {
     console.log("mongodb connect success");
   })
