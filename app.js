@@ -50,8 +50,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-// mongoose.connect('mongodb://localhost:27017/nft_rps')
-mongoose.connect('mongodb://doadmin:17XJK48i96z50DSg@rpsgame-34e6245c.mongo.ondigitalocean.com:27017/admin')
+mongoose.connect('mongodb://localhost:27017/nft_rps')
+// mongoose.connect('mongodb+srv://doadmin:76U12GRb0HCg4W85@db-mongodb-nyc3-73883-4aef1b0f.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=db-mongodb-nyc3-73883&readPreference=secondary')
   .then(function (result, second) {
     console.log("mongodb connect success");
   })
