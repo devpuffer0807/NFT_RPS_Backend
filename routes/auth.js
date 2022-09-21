@@ -75,7 +75,7 @@ router.post("/signup",
         try {
             const _checkUser = await User.findOne({ walletAddress: walletAddress });
             if (_checkUser) {
-                await _checkUser.updateOne({ name: name, avatarImg: avatarImg });
+                await _checkUser.updateOne({ name: name, avatarImg: avatarImg, email: email, phoneNumber: phoneNumber });
             } else {
                 const user = new User({
                     name: name,
