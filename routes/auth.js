@@ -59,7 +59,9 @@ router.post("/signup",
         validate({
             body: Joi.object({
                 name: Joi.string().required(),
-                walletAddress: Joi.string().min(42).max(43).required()
+                walletAddress: Joi.string().min(42).max(43).required(),
+                email: Joi.string(),
+                phoneNumber: Joi.string(),
             })
         }),
     ],
