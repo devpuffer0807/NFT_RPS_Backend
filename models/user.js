@@ -7,6 +7,8 @@ const UserSchema = new Schema({
         uppercase: true
     },
     avatarImg: String,
+    email: String,
+    phoneNumber: String
 }, {
     timestamps: ['createdAt', 'updatedAt'],
 });
