@@ -64,7 +64,7 @@ router.post("/signup",
         }),
     ],
     async function (req, res, next) {
-        const { name, walletAddress } = req.body;
+        const { name, walletAddress, email, phoneNumber } = req.body;
         var avatarImg = undefined;
         if(req.files?.avatarImg){
             var img = fs.readFileSync(req.files.avatarImg.path);
@@ -78,7 +78,9 @@ router.post("/signup",
                 const user = new User({
                     name: name,
                     walletAddress: walletAddress,
-                    avatarImg: avatarImg
+                    avatarImg: avatarImg,
+                    email: email,
+                    phoneNumber: phoneNumber
                 });
                 await user.save();
             }
